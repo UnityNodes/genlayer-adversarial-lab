@@ -32,12 +32,20 @@ Deployed the flagship vulnerable contracts to BOTH testnets and confirmed each o
   - https://explorer-asimov.genlayer.com/address/0xBf8392c2A5B5969508217434f2dB248EF7431D8A
 - `sentiment_escrow` (`SentimentEscrow`) address `0xB8877B9aCE25E86B887E67dC9EeD6B8c95734410`, deploy tx `0xd4b955d64ac201b56621a89f31947d0975a7b5c347defc8ad2e5b6b1530f72c2`
   - https://explorer-asimov.genlayer.com/address/0xB8877B9aCE25E86B887E67dC9EeD6B8c95734410
+- `judge_bypass` (`JudgeBypass`) address `0xC5674E4e17A03A8b2e7c8CE35Fa289C923855F5A`
+  - https://explorer-asimov.genlayer.com/address/0xC5674E4e17A03A8b2e7c8CE35Fa289C923855F5A
+- `image_moderator` (`ImageModerator`) address `0xc44BE39b45453d80aDBFfcCA983531987e37Afd2`
+  - https://explorer-asimov.genlayer.com/address/0xc44BE39b45453d80aDBFfcCA983531987e37Afd2
 
 **Bradbury**
 - `web_price_oracle` (`WebPriceOracle`) address `0x7B9088Ef4c39CB3A36F45b1cAE6eaBF70Af0E29A`, deploy tx `0x1dd9d0d89cbfb1ab8f977c83084526c6c75dd11727cb422504fe75e0e13fde59`
   - https://explorer-bradbury.genlayer.com/address/0x7B9088Ef4c39CB3A36F45b1cAE6eaBF70Af0E29A
 - `sentiment_escrow` (`SentimentEscrow`) address `0x8E833c826Ba202Ad5De0168aeF4d56A237b0FbC4`, deploy tx `0x10fb6f0de913dec5b5188b48d946fc1cc7183ecde7adac49b47a622b353f82e2`
   - https://explorer-bradbury.genlayer.com/address/0x8E833c826Ba202Ad5De0168aeF4d56A237b0FbC4
+- `judge_bypass` (`JudgeBypass`) address `0x7d933647f97e4C42c358BF9FcE1a4B0e805AC558`
+  - https://explorer-bradbury.genlayer.com/address/0x7d933647f97e4C42c358BF9FcE1a4B0e805AC558
+- `image_moderator` (`ImageModerator`) address `0x6a7F6b1E752F37F4189E5f79DDE84d7f31B788e0`
+  - https://explorer-bradbury.genlayer.com/address/0x6a7F6b1E752F37F4189E5f79DDE84d7f31B788e0
 
 ### How the deploy was done (reproducible)
 
