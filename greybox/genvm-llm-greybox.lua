@@ -17,7 +17,7 @@
 -- reference implementation (tests/direct/test_greybox_transforms.py).
 
 local TEXT_FILTERS = { "NFKC", "RmZeroWidth", "NormalizeWS" }
-local IMAGE_FILTERS = { "Denoise", "GaussianNoise", "Unsharpen", "JPEG" }
+local IMAGE_FILTERS = { "Denoise", "GuassianNoise", "Unsharpen", "JPEG" }
 
 -- Starter cross-script confusables map (extend from Unicode confusables data).
 local CONFUSABLES = {

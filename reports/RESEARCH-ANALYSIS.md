@@ -11,7 +11,7 @@ The central result, verified against source and demonstrated in code: consensus 
 catches non-deterministic divergence between validators, so a prompt injection that flips
 every node the same way passes consensus untouched. Integrity must therefore live in
 deterministic contract logic, not in the equivalence principle. Everything here is
-runnable and reproducible (24 Direct-mode tests, studionet and testnet deployments), which
+runnable and reproducible (26 Direct-mode tests, studionet and testnet deployments), which
 is what distinguishes it from descriptive analyses.
 
 Repository: <https://github.com/UnityNodes/genlayer-adversarial-lab>
@@ -103,7 +103,7 @@ testnet deploys go through the newer `genlayer` CLI (documented in
 
 ## 7. Evidence
 
-- 24 Direct-mode tests green; 8 contracts pass `genvm-lint check`.
+- 26 Direct-mode tests green; 8 contracts pass `genvm-lint check`.
 - End-to-end on studionet (deploy plus a real nondet consensus write).
 - Testnet deployments on both Asimov and Bradbury, verified on-chain with `genlayer
   schema` (addresses and explorer links in [deploy/NOTES.md](../deploy/NOTES.md)).

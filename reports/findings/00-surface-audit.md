@@ -30,7 +30,7 @@ Both hooks filter only the INPUT (`ExecPrompt` filters `args.prompt`; `ExecPromp
 
 ## Claim 3 - images are unfiltered by the default script - CONFIRMED
 
-`ExecPrompt` filters only `args.prompt`. It never calls `filter_image` and never touches `args.images`. The built-in image filters (`Denoise`, `GaussianNoise`, `Unsharpen`, `JPEG`) exist but are NOT wired into the shipped default script.
+`ExecPrompt` filters only `args.prompt`. It never calls `filter_image` and never touches `args.images`. The built-in image filters (`Denoise`, `GuassianNoise`, `Unsharpen`, `JPEG`) exist but are NOT wired into the shipped default script.
 
 - Evidence: the only filter call in `ExecPrompt` is `filter_text(args.prompt, ...)`; there is no `filter_image` anywhere in the default script.
 - Consequence: text rendered inside an image reaches the model unmodified by default - an undefended multimodal injection channel. Gates the `image_moderator` target (GO). Feeds finding 03.
