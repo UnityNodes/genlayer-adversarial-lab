@@ -1,10 +1,10 @@
 # genlayer-adversarial-lab
 
-A runnable adversarial-testing lab for **GenLayer Intelligent Contracts**: vulnerable-by-design target contracts, their hardened counterparts, and a Direct-mode test suite that demonstrates prompt-injection attacks and the defenses that stop them — plus a roadmap toward empirical greyboxing measurement.
+A runnable adversarial-testing lab for **GenLayer Intelligent Contracts**: vulnerable-by-design target contracts, their hardened counterparts, and a Direct-mode test suite that demonstrates prompt-injection attacks and the defenses that stop them - plus a roadmap toward empirical greyboxing measurement.
 
 > **Status: 🟡 work in progress.** Toolchain scaffold and architecture are in place. Contracts, tests and reports are being implemented on a Linux environment (Python 3.12 + Docker). See [SETUP.md](SETUP.md).
 
-> **Responsible use.** Every artifact here is for **defensive security research and education**. Attack contracts and payloads target lab-controlled contracts and mocks only — never third-party deployments. No real users, funds, or systems are involved.
+> **Responsible use.** Every artifact here is for **defensive security research and education**. Attack contracts and payloads target lab-controlled contracts and mocks only - never third-party deployments. No real users, funds, or systems are involved.
 
 ## What it explores
 
@@ -17,10 +17,10 @@ GenLayer Intelligent Contracts can call LLMs and fetch the web without oracles. 
 | `judge_bypass` | attacker text → equivalence-principle criteria | the LLM judge itself is subverted |
 
 Each ships in two variants:
-- **vulnerable/** — naive: untrusted data concatenated into the prompt; the model's verdict trusted directly.
-- **hardened/** — strict JSON-schema output, deterministic guards in Python, independent validator judging.
+- **vulnerable/** - naive: untrusted data concatenated into the prompt; the model's verdict trusted directly.
+- **hardened/** - strict JSON-schema output, deterministic guards in Python, independent validator judging.
 
-The lab's thesis, verified against GenVM source: **consensus only catches non-deterministic divergence between validators. A prompt injection that flips every node the same way passes consensus untouched — so integrity must live in contract logic, not the equivalence principle.** See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
+The lab's thesis, verified against GenVM source: **consensus only catches non-deterministic divergence between validators. A prompt injection that flips every node the same way passes consensus untouched - so integrity must live in contract logic, not the equivalence principle.** See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
 ## Structure
 
@@ -50,4 +50,4 @@ The official GenLayer toolchain: [`genlayer-py`](https://github.com/genlayerlabs
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT - see [LICENSE](LICENSE).

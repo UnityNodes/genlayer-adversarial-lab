@@ -1,6 +1,6 @@
 # Setup
 
-The lab targets **Python 3.12+** and uses **Docker** for GenLayer Studio (localnet). Linux is recommended — GenLayer full nodes officially require 64-bit Linux, and Studio runs on Docker.
+The lab targets **Python 3.12+** and uses **Docker** for GenLayer Studio (localnet). Linux is recommended - GenLayer full nodes officially require 64-bit Linux, and Studio runs on Docker.
 
 ## 1. System dependencies (Ubuntu example)
 
