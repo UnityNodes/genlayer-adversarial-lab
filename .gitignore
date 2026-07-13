@@ -4,3 +4,4 @@ artifacts/
 .env
 __pycache__/
 *.pyc
+SUBMISSIONS.md
