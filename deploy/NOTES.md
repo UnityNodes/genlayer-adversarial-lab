@@ -18,22 +18,26 @@ Local Studio (`genlayer up`) is intentionally skipped: on a headless server it s
 
 ## Testnet target (Task 0.4)
 
-- Live network: Asimov (chainId 4221). Both rpc-asimov and rpc-bradbury answer with the same chainId and near-identical block height, so they front the same current testnet; confirm the program's preferred name on portal.genlayer.foundation.
-- RPC: https://rpc-asimov.genlayer.com  (mainContract 0x6CAFF6769d70824745AD895663409DC70aB5B28E)
-- Explorer scheme: https://explorer-asimov.genlayer.com/address/<contract>  and  /tx/<hash>
+- Asimov and Bradbury are both live and are SEPARATE networks. They share chainId 4221 and a similar block height, but have different consensus mainContracts (Asimov 0x6CAFF6769d70824745AD895663409DC70aB5B28E, Bradbury 0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D) and separate state: a contract deployed on one is not found on the other (verified). The funded placeholder account holds ~23.8 GEN on both.
+- The PoCs are deployed to BOTH so evidence exists whichever network the program credits; confirm the preferred one on portal.genlayer.foundation.
+- RPC: https://rpc-asimov.genlayer.com  or  https://rpc-bradbury.genlayer.com
+- Explorer scheme: https://explorer-asimov.genlayer.com/address/<contract> (and /tx/<hash>); same paths on explorer-bradbury.
 
 ## Testnet PoC evidence (Task 1.11)
 
-Deployed the flagship vulnerable contracts to Asimov and confirmed each on-chain with `genlayer schema`.
+Deployed the flagship vulnerable contracts to BOTH testnets and confirmed each on-chain with `genlayer schema`.
 
-- `web_price_oracle` (`WebPriceOracle`)
-  - address: `0xBf8392c2A5B5969508217434f2dB248EF7431D8A`
-  - deploy tx: `0xb26d469b5a839991e7d734a95bb1f35dbfc10f5a5c3d7579f05acabc8852d8cb`
-  - explorer: https://explorer-asimov.genlayer.com/address/0xBf8392c2A5B5969508217434f2dB248EF7431D8A
-- `sentiment_escrow` (`SentimentEscrow`)
-  - address: `0xB8877B9aCE25E86B887E67dC9EeD6B8c95734410`
-  - deploy tx: `0xd4b955d64ac201b56621a89f31947d0975a7b5c347defc8ad2e5b6b1530f72c2`
-  - explorer: https://explorer-asimov.genlayer.com/address/0xB8877B9aCE25E86B887E67dC9EeD6B8c95734410
+**Asimov**
+- `web_price_oracle` (`WebPriceOracle`) address `0xBf8392c2A5B5969508217434f2dB248EF7431D8A`, deploy tx `0xb26d469b5a839991e7d734a95bb1f35dbfc10f5a5c3d7579f05acabc8852d8cb`
+  - https://explorer-asimov.genlayer.com/address/0xBf8392c2A5B5969508217434f2dB248EF7431D8A
+- `sentiment_escrow` (`SentimentEscrow`) address `0xB8877B9aCE25E86B887E67dC9EeD6B8c95734410`, deploy tx `0xd4b955d64ac201b56621a89f31947d0975a7b5c347defc8ad2e5b6b1530f72c2`
+  - https://explorer-asimov.genlayer.com/address/0xB8877B9aCE25E86B887E67dC9EeD6B8c95734410
+
+**Bradbury**
+- `web_price_oracle` (`WebPriceOracle`) address `0x7B9088Ef4c39CB3A36F45b1cAE6eaBF70Af0E29A`, deploy tx `0x1dd9d0d89cbfb1ab8f977c83084526c6c75dd11727cb422504fe75e0e13fde59`
+  - https://explorer-bradbury.genlayer.com/address/0x7B9088Ef4c39CB3A36F45b1cAE6eaBF70Af0E29A
+- `sentiment_escrow` (`SentimentEscrow`) address `0x8E833c826Ba202Ad5De0168aeF4d56A237b0FbC4`, deploy tx `0x10fb6f0de913dec5b5188b48d946fc1cc7183ecde7adac49b47a622b353f82e2`
+  - https://explorer-bradbury.genlayer.com/address/0x8E833c826Ba202Ad5De0168aeF4d56A237b0FbC4
 
 ### How the deploy was done (reproducible)
 
