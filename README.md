@@ -19,7 +19,7 @@ GenLayer Intelligent Contracts can call LLMs and fetch the web without oracles. 
 
 Each ships in two variants:
 - **vulnerable/** - naive: untrusted data concatenated into the prompt; the model's verdict trusted directly.
-- **hardened/** - strict JSON-schema output, deterministic guards in Python, independent validator judging.
+- **hardened/** - strict JSON-schema output and deterministic Python guards (sanity bands and allow-lists); the state decision is made in code, not from a free-text verdict.
 
 The lab's thesis, verified against GenVM source: **consensus only catches non-deterministic divergence between validators. A prompt injection that flips every node the same way passes consensus untouched - so integrity must live in contract logic, not the equivalence principle.** See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
