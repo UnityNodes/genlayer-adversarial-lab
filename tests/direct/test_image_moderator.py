@@ -1,6 +1,4 @@
-def test_vulnerable_image_injection_flips_moderation(
-    direct_vm, direct_deploy, direct_alice
-):
+def test_vulnerable_trusts_model_verdict(direct_vm, direct_deploy, direct_alice):
     contract = direct_deploy("contracts/vulnerable/image_moderator.py")
     direct_vm.sender = direct_alice
     direct_vm.mock_llm(r".*[Mm]oderate.*", "SAFE")

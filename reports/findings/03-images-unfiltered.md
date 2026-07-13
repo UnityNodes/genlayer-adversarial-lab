@@ -7,12 +7,12 @@
 
 ## Description
 
-`ExecPrompt` filters only `args.prompt` (`filter_text`). It never calls `filter_image` and never touches `args.images`. The built-in image filters (`Denoise`, `GaussianNoise`, `Unsharpen`, `JPEG`) exist in the runtime but are not wired into the shipped default script, so images pass to the model unmodified by default.
+`ExecPrompt` filters only `args.prompt` (`filter_text`). It never calls `filter_image` and never touches `args.images`. The built-in image filters are defined in the runtime as the `ImageFilter` enum (`Denoise`, `Unsharpen`, `GuassianNoise` [sic, as spelled in source], `JPEG`; [filters.rs L10-15](https://github.com/genlayerlabs/genvm/blob/abb71bf891695b737e6a4f5211f4740a3b25543d/modules/implementation/src/scripting/ctx/filters.rs#L10-L15)) but are not wired into the shipped default script, so images pass to the model unmodified by default.
 
 ## Reproduction
 
 - Vulnerable target: [contracts/vulnerable/image_moderator.py](../../contracts/vulnerable/image_moderator.py) trusts the model verdict on an image.
-- Direct test: [tests/direct/test_image_moderator.py](../../tests/direct/test_image_moderator.py) - `test_vulnerable_image_injection_flips_moderation` (Direct mode accepts `bytes` and `exec_prompt(images=[...])`; the mock simulates a model swayed by text rendered inside the image).
+- Direct test: [tests/direct/test_image_moderator.py](../../tests/direct/test_image_moderator.py) - `test_vulnerable_trusts_model_verdict` proves the contract stores whatever verdict the model returns (Direct mode accepts `bytes` and `exec_prompt(images=[...])`). The image is opaque to the LLM mock, so Direct mode cannot drive an image-content flip; the unfiltered-image channel itself is established by the source audit above, not by this test.
 
 ## Impact
 
@@ -26,4 +26,5 @@ Text rendered inside an image (an instruction painted into the pixels) reaches t
 ## References
 
 - Surface audit: [00-surface-audit.md](00-surface-audit.md)
-- ARCHITECTURE.md facts F2, F6.
+- Image filter set in source: [filters.rs L10-15](https://github.com/genlayerlabs/genvm/blob/abb71bf891695b737e6a4f5211f4740a3b25543d/modules/implementation/src/scripting/ctx/filters.rs#L10-L15).
+- docs/ARCHITECTURE.md facts F2, F6.

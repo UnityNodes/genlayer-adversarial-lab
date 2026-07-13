@@ -6,7 +6,7 @@ GenLayer Intelligent Contracts can call LLMs and fetch the web without oracles, 
 turns two ordinary operations, `gl.nondet.exec_prompt` and `gl.nondet.web`, into
 untrusted-data sinks. This analysis maps those sinks, demonstrates each with a runnable
 vulnerable contract and its hardened counterpart, verifies the shipped greybox behavior
-against GenVM source, and measures a set of greybox defenses against an attack corpus.
+against GenVM source, and measures a set of greybox transforms against an attack corpus (transform-level; the on-node attack-success-rate ablation is Phase 2).
 The central result, verified against source and demonstrated in code: consensus only
 catches non-deterministic divergence between validators, so a prompt injection that flips
 every node the same way passes consensus untouched. Integrity must therefore live in

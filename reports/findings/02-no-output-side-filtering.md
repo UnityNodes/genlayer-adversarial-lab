@@ -27,4 +27,4 @@ Output-side attacks - schema hijacking, extra-field injection, model self-identi
 ## References
 
 - Surface audit: [00-surface-audit.md](00-surface-audit.md)
-- ARCHITECTURE.md fact F6.
+- docs/ARCHITECTURE.md fact F6.
