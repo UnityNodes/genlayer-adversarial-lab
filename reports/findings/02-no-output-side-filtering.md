@@ -21,7 +21,7 @@ Output-side attacks - schema hijacking, extra-field injection, model self-identi
 
 ## Suggested mitigation
 
-- Contract side (mandatory today): constrain output to a strict JSON schema, reject extra keys / wrong types, and make the money/state decision in deterministic Python from validated fields. Demonstrated by every hardened contract in this lab.
+- Contract side (mandatory today): constrain output to a strict JSON schema and reject extra keys / wrong types. Where a model-independent ground truth exists, also make the state decision in deterministic Python from validated fields - demonstrated by the money contracts `sentiment_escrow` (release only if `sentiment == "positive"` and `mentions_product`) and `web_price_oracle` (independent numeric sanity band). The `judge_bypass` and `image_moderator` hardened variants have no such ground-truth field, so they enforce the strict schema plus delimited untrusted data and a fixed criteria / ignore-in-image-text instruction; that is the achievable ceiling for those classes, not a model-independent decision.
 - Node/script side (optional hardening): add an output-side `filter_text` / schema check in the greybox script.
 
 ## References

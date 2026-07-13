@@ -15,7 +15,7 @@
 - Vulnerable target: [contracts/vulnerable/judge_bypass.py](../../contracts/vulnerable/judge_bypass.py)
 - Direct test: [tests/direct/test_judge_bypass_vulnerable.py](../../tests/direct/test_judge_bypass_vulnerable.py) - `test_criteria_injection_forces_accept`.
 
-The Direct test demonstrates the class leader-side (attacker `task` text concatenated into the grader prompt flips the verdict), because the pure equivalence-principle judging runs validator-side and is not exercised in leader-only Direct mode. The source audit (finding 00) is the direct evidence that the judge-template path itself is unfiltered.
+The Direct test demonstrates the class leader-side (attacker `task` text concatenated into the grader prompt flips the verdict), because the pure equivalence-principle judging runs validator-side and is not exercised in leader-only Direct mode. Note that the reproduction contract uses `gl.eq_principle.strict_eq` + `exec_prompt` (the FILTERED `ExecPrompt` path), so it demonstrates the general injection class rather than the specific template gap; the unfiltered-`ExecPromptTemplate` defect itself is established by the source audit (finding 00), which is the direct evidence.
 
 ## Impact
 
