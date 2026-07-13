@@ -28,7 +28,7 @@ local CONFUSABLES = {
 }
 
 local function deconfuse(s)
-	return (s:gsub("[\u{0080}-\u{FFFF}]", function(ch)
+	return (s:gsub(utf8.charpattern, function(ch)
 		return CONFUSABLES[ch] or ch
 	end))
 end

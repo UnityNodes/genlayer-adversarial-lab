@@ -45,7 +45,7 @@ Two modes, from the GenLayer testing suite (gltest):
 
 ## 5. Roadmap
 
-- **Phase 1 (current) - GLAdversary:** the three+ target contracts, hardened variants, Direct-mode adversarial tests, and Studio end-to-end.
+- **Phase 1 (current) - GLAdversary:** the four target contracts, hardened variants, Direct-mode adversarial tests, and Studio end-to-end.
 - **Phase 2 - GreyboxBench:** custom validator-side Lua greybox scripts (paraphrase / perplexity / retokenize) on a real node; measure attack-success-rate with per-technique ablation. This is the empirical gap no existing GenLayer work fills.
 - **Phase 3 - Report:** synthesize the empirical results and the confirmed undefended surfaces (F6) into a written security analysis.
 

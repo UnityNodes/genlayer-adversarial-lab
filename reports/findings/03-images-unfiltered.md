@@ -20,7 +20,7 @@ Text rendered inside an image (an instruction painted into the pixels) reaches t
 
 ## Suggested mitigation
 
-- Node/script side: wire the built-in `ImageFilter` set into `ExecPrompt` for `args.images`.
+- Node/script side: apply an image control to `args.images` in `ExecPrompt`. Note the built-in `ImageFilter` set (`Denoise`, `Unsharpen`, `GuassianNoise`, `JPEG`) targets pixel-level adversarial perturbation, not rendered text, so text-in-image injection needs an OCR or vision-model check rather than these magnitude filters alone.
 - Contract side (available today): validate the verdict against a strict allow-list and instruct the model to ignore in-image text. See [contracts/hardened/image_moderator.py](../../contracts/hardened/image_moderator.py).
 
 ## References
