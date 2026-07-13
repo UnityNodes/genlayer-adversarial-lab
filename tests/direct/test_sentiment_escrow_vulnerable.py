@@ -1,12 +1,3 @@
-"""Direct-injection sink: a user argument is concatenated into the judge prompt.
-
-The mock simulates a model whose verdict has been flipped to YES by the
-injected review text. Because that YES is identical on every validator,
-strict_eq consensus agrees and the malicious release goes through: the
-vulnerability lives in the contract trusting the verdict with no
-deterministic guard (ARCHITECTURE.md F4).
-"""
-
 from tests.direct.conftest import to_hex
 
 

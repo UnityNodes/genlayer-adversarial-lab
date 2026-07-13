@@ -1,10 +1,3 @@
-"""Hardened sentiment_escrow: strict JSON schema + deterministic release guard.
-
-The release decision is made in Python from validated fields, never from a
-free-text verdict. Malformed or off-schema model output is rejected instead
-of trusted.
-"""
-
 from tests.direct.conftest import to_hex
 
 
