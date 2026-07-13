@@ -2,7 +2,7 @@
 
 A runnable adversarial-testing lab for **GenLayer Intelligent Contracts**: vulnerable-by-design target contracts, their hardened counterparts, and a Direct-mode test suite that demonstrates prompt-injection attacks and the defenses that stop them - plus a roadmap toward empirical greyboxing measurement.
 
-> **Status: 🟢 Phase 1 (GLAdversary), Direct mode complete.** Four vulnerable/hardened contract pairs with a green Direct-mode adversarial suite (17 tests), an attack corpus, and source-verified findings. Studio integration and testnet PoC deployment are next. See [SETUP.md](SETUP.md).
+> **Status: 🟢 Phase 1 complete; Phase 2 greybox underway.** Four vulnerable/hardened contract pairs, a green Direct-mode suite (24 tests), an attack corpus, source-verified findings, greybox techniques with a tested reference, and PoCs live on both testnets (Asimov and Bradbury). See [SETUP.md](SETUP.md) and [reports/RESEARCH-ANALYSIS.md](reports/RESEARCH-ANALYSIS.md).
 
 > **Responsible use.** Every artifact here is for **defensive security research and education**. Attack contracts and payloads target lab-controlled contracts and mocks only - never third-party deployments. No real users, funds, or systems are involved.
 
@@ -31,7 +31,10 @@ contracts/hardened/     # mitigated counterparts
 attacks/                # attack corpus as data (payloads + manifests)
 tests/direct/           # fast in-memory adversarial tests (LLM/web mocked)
 tests/integration/      # Studio end-to-end (real consensus)
+greybox/                # validator-side greybox techniques + tested reference
 reports/findings/       # security findings writeups
+reports/RESEARCH-ANALYSIS.md  # synthesis writeup
+deploy/NOTES.md         # testnet deployments and reproduction notes
 docs/ARCHITECTURE.md    # technical foundation
 ```
 
