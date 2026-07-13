@@ -18,14 +18,30 @@ Local Studio (`genlayer up`) is intentionally skipped: on a headless server it s
 
 ## Testnet target (Task 0.4)
 
-- Live network: _Asimov | Bradbury_ (confirm on portal.genlayer.foundation)
-- RPC: https://rpc-asimov.genlayer.com  or  https://rpc-bradbury.genlayer.com
-- Explorer: https://explorer-asimov.genlayer.com  or  https://explorer-bradbury.genlayer.com
+- Live network: Asimov (chainId 4221). Both rpc-asimov and rpc-bradbury answer with the same chainId and near-identical block height, so they front the same current testnet; confirm the program's preferred name on portal.genlayer.foundation.
+- RPC: https://rpc-asimov.genlayer.com  (mainContract 0x6CAFF6769d70824745AD895663409DC70aB5B28E)
+- Explorer scheme: https://explorer-asimov.genlayer.com/address/<contract>  and  /tx/<hash>
 
 ## Testnet PoC evidence (Task 1.11)
 
-studionet deploys are ephemeral and NOT portal evidence. For submissions, deploy the flagship
-vulnerable contracts to the chosen testnet (funded key in `.env`) and record the Explorer URLs here.
+Deployed the flagship vulnerable contracts to Asimov and confirmed each on-chain with `genlayer schema`.
 
-- `web_price_oracle`: _address_ / _explorer url_
-- `sentiment_escrow`: _address_ / _explorer url_
+- `web_price_oracle` (`WebPriceOracle`)
+  - address: `0xBf8392c2A5B5969508217434f2dB248EF7431D8A`
+  - deploy tx: `0xb26d469b5a839991e7d734a95bb1f35dbfc10f5a5c3d7579f05acabc8852d8cb`
+  - explorer: https://explorer-asimov.genlayer.com/address/0xBf8392c2A5B5969508217434f2dB248EF7431D8A
+- `sentiment_escrow` (`SentimentEscrow`)
+  - address: `0xB8877B9aCE25E86B887E67dC9EeD6B8c95734410`
+  - deploy tx: `0xd4b955d64ac201b56621a89f31947d0975a7b5c347defc8ad2e5b6b1530f72c2`
+  - explorer: https://explorer-asimov.genlayer.com/address/0xB8877B9aCE25E86B887E67dC9EeD6B8c95734410
+
+### How the deploy was done (reproducible)
+
+- The pinned Python client (`genlayer-py 0.18`, the latest release) CANNOT deploy to the current testnet: it fails to decode the consensus contract's `getTransactionData` response (client is behind the live testnet). Use the newer Node CLI instead.
+- Deploy path that works:
+  ```bash
+  genlayer network set testnet-asimov
+  genlayer account import --name default --private-key <KEY> --password <PW>
+  printf '<PW>\n' | genlayer deploy --contract contracts/vulnerable/<name>.py
+  ```
+- Deployer here is the funded public dev placeholder `0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266` (~23.8 GEN), NOT the `0xFearless-1` identity. To attribute the deploy to your own wallet, import your funded key as the `default` account and redeploy; the addresses above then just get superseded by your own.
